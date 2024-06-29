@@ -12,7 +12,7 @@ interface HeaderProps {
 export const Header = ({label}:HeaderProps) => {
     return(
         <div className={cn("flex flex-col space-y-5 justify-center items-center", font.className)}>
-            <h1 className={cn("text-4xl font-semibold")}>Auth</h1>
+            <h1 className={cn("text-4xl font-semibold")}>Startific</h1>
             <p className="text-muted-foreground text-sm">{label}</p>
         </div>
     )
