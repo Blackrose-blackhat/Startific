@@ -2,6 +2,7 @@ import React from 'react'
 import "../globals.css"
 import { ThemeProvider } from '@/components/theme-provider'
 import { Metadata } from 'next';
+import Navbar from '@/components/shared/navbar';
 
 export const metadata: Metadata = {
   title: "Startific",
@@ -9,17 +10,21 @@ export const metadata: Metadata = {
 };
 const AuthLayout = ({children}:{children:React.ReactNode}) => {
   return (
-    <div className='h-screen flex items-center justify-center'>
+    <html lang="en">
+
+
+    <body className='h-screen flex items-center justify-center'>
        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        >
-
+          >
+          <Navbar />
       {children}
         </ThemeProvider>
-      </div>
+      </body>
+          </html>
   )
 }
 

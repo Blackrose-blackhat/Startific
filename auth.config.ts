@@ -8,15 +8,16 @@ import Google from "next-auth/providers/google";
 
 export default {
   secret: process.env.NEXTAUTH_SECRET,
+  
   providers: [
     Github({
       clientId : process.env.GITHUB_CLIENT_ID,
-      clientSecret : process.env.GITHUB_CLIENT_SECRET
+      clientSecret : process.env.GITHUB_CLIENT_SECRET,
     }),
-    // Google({
-    //   clientId: process.env.GOOGLE_CLIENT_ID,
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    // }),
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    }),
     Credentials({
       async authorize(credentials) {
         const validatedFields = LoginSchema.safeParse(credentials);
@@ -43,4 +44,9 @@ export default {
       }
     })
   ],
+  callbacks: {
+    async session({ session, token }) {
+      return session;
+    },
+  },
 } satisfies NextAuthConfig;

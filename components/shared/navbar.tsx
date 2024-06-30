@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <nav className="flex flex-row justify-center align-middle items-center w-full p-5 px-10 fixed top-0 z-50 ">
+    <nav className="flex flex-row justify-between align-middle items-center w-full p-5 px-10 fixed top-0 z-50 ">
       <div className="flex-1">
         <h1>Logo</h1>
       </div>
