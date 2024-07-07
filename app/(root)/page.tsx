@@ -1,25 +1,17 @@
+import Navbar from "@/components/shared/navbar";
+import Loader from "@/components/ui/Loader";
+import dynamic from "next/dynamic";
 
-import { LoginButton } from "@/components/auth/login-button";
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/theme-switcher";
-import Image from "next/image";
-import { Suspense, lazy } from "react";
-const Header = lazy(()=> import("@/components/landing/Header"))
+const Header = dynamic(() => import("@/components/landing/Header"), {
+  loading: () => <Loader />,
+  ssr: false, // This line will take care of deciding whether to load on server or client side
+});
 export default function Home() {
- 
-console.log(process.env.
-  GITHUB_CLIENT_ID)
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between ">
-      <Suspense fallback={<div>Loding...</div>}>
-      
+          <Navbar />
+
       <Header />
-      </Suspense>
-      {/* <LoginButton >
-        <Button>Login</Button>
-      </LoginButton> */}
-    
     </main>
   );
 }

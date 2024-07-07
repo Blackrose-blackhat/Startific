@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../globals.css";
+import "../../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/shared/navbar";
+import TopNavBar from "@/components/shared/TopNavBar";
+import SideNavbar from "@/components/shared/SideNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,15 +20,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className}  w-full scroll-smooth min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-      
-          {children}
+          <div className="top-0 z-20 w-full ">
+            <TopNavBar />
+          </div>
+          <main className="flex flex-row justify-between w-full">
+            <SideNavbar />
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

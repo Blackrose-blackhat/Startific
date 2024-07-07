@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <main className=" p-20  flex flex-row items-center align-middle justify-between w-full h-screen">
       <div className="lg:w-1/2 w-full flex flex-col space-y-5">
-        <h1 className="lg:text-6xl  text-2xl font-semibold">
+        <h1 className="lg:text-6xl text-3xl   font-semibold">
           Transforming Innovation into{" "}
           <Text />
           

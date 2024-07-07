@@ -13,7 +13,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = "postgresql://postgres:yourpassword@localhost:5432/postgres" // uses connection pooling
+  url = "{${process.env.DB_URL}}" // uses connection pooling
   // uses a direct connection
 }
 
